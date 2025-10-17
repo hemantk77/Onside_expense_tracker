@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.db.models import Sum
 from .models import Transaction
+from decimal import Decimal
 from .forms import TransactionForm
 
 # --- Authentication Views ---
