@@ -27,8 +27,8 @@ def dashboard_view(request):
     transactions = Transaction.objects.filter(user=request.user)
     
     # Calculate totals
-    total_income = transactions.filter(category='Income').aggregate(Sum('amount'))['amount__sum'] or 0.00
-    total_expenses = transactions.exclude(category='Income').aggregate(Sum('amount'))['amount__sum'] or 0.00
+    total_income = transactions.filter(category='Income').aggregate(Sum('amount'))['amount__sum'] or Decimal('0.00')
+    total_expenses = transactions.exclude(category='Income').aggregate(Sum('amount'))['amount__sum'] or Decimal('0.00')
     net_balance = total_income - total_expenses
     
     context = {
